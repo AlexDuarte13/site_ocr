@@ -7,11 +7,16 @@
     <title>OCR AGORA</title>
     <!-- Font Awesome CSS Library -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
+
     <!-- BootStrap CSS Library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.css">
+
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo_ocr.png">
+
     <!-- Animate CSS CDN -->
     <link rel="stylesheet" href="css/animate.min.css">
     <!-- 
@@ -29,7 +34,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a href="#main-header" class="navbar-brand">
-                <img src="img/logo_ocr.png" width="120" height="120" alt="OCR AGORA">
+                <img src="img/logo_ocr.png" width="80" height="80" alt="OCR AGORA">
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
@@ -116,7 +121,7 @@
                         <div class="form-group">
                             <div class="input-group input-file" name="Fichier1">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default btn-choose" type="button">Escolha</button>
+                                    <button class="btn btn-light btn-choose" type="button">Escolha</button>
                                 </span>
                                 <input type="text" class="form-control" placeholder='Escolha o seu arquivo...' />
                                 <span class="input-group-btn">
@@ -161,6 +166,37 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Blog Area -->
+    <section id="conteudo-json" class="">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-uppercase" id="blog">
+                    <img src="img/b.png" alt="B Letter" class="img-fluid">
+                    <h2 class="section-custom-title">Conteúdo do seu arquivo</h2>
+                    <!--<h4>We Love Clean Design and advanced digital solutions.</h4>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center " id="blog1">
+                    <h6 class="text-uppercase text-primary">Response</h6>
+                    <div class="form-group">
+                        <input>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea>
+
+                            </textarea>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- News Section -->
     <section id="news-section">
         <div class="container-fluid h-100 p-0">
@@ -169,15 +205,18 @@
                     <span>Abr 1, 2020 | Nossa Cultura</span>
                     <h2 class="my-3">EM BUSCA SEMPRE DO MELHOR</h2>
                     <p class="text-justify">
-                        Utilizamos o que há de mais novo em técnologia disponível, quando o assunto é criar soluções para facilitar 
-                        seu dia-a-dia. Todas as nossas soluções são simples e criativas para que possamos sempre agregar valor para 
+                        Utilizamos o que há de mais novo em técnologia disponível, quando o assunto é criar soluções
+                        para facilitar
+                        seu dia-a-dia. Todas as nossas soluções são simples e criativas para que possamos sempre agregar
+                        valor para
                         você e sua empresa.
 
                     </p>
                     <p class="text-justify">
-                        Visando ajudar cada vez mais suas tarefas cotidianas, utilizamos de ferramentas de 
-                        Reconhecimento Óptico de Caracteres (Optical Character Recognition), 
-                        popularmente conhecidas pela sigla OCR, para estar sempre um passo a frente e entregar cada vez mais valor.
+                        Visando ajudar cada vez mais suas tarefas cotidianas, utilizamos de ferramentas de
+                        Reconhecimento Óptico de Caracteres (Optical Character Recognition),
+                        popularmente conhecidas pela sigla OCR, para estar sempre um passo a frente e entregar cada vez
+                        mais valor.
                     </p>
                 </div>
                 <div class="col-md-6 w-100 h-100 hidden-md-down" id="news2">
@@ -192,12 +231,15 @@
                     <span>Abr 1, 2020 | Nossa Cultura</span>
                     <h2 class="my-3">GOSTOU DO NOSSO SERVIÇO?!</h2>
                     <p class="text-justify">
-                        Se você curtiu nosso serviço, entre em contato conosco na proxima sessão, podemos solucionar muita coisa pra você e para sua empresa.
-                        Deixe-nos tirar um pouco da responsabilidade de suas costas!!! Nosso foco é ajudar você a viver melhor e com 
-                        qualidade!  
+                        Se você curtiu nosso serviço, entre em contato conosco na proxima sessão, podemos solucionar
+                        muita coisa pra você e para sua empresa.
+                        Deixe-nos tirar um pouco da responsabilidade de suas costas!!! Nosso foco é ajudar você a viver
+                        melhor e com
+                        qualidade!
                     </p>
                     <p class="text-justify">
-                        Seja um de nossos parceiros e desfrute do que há de mais novo no mercado, sem burocracia e sem enrolação!
+                        Seja um de nossos parceiros e desfrute do que há de mais novo no mercado, sem burocracia e sem
+                        enrolação!
                     </p>
                 </div>
             </div>
@@ -392,7 +434,8 @@
                 <div class="row my-2" id="form-text-area">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea placeholder="Escreva aqui sua mensagem..." class="form-control" rows="7"></textarea>
+                            <textarea placeholder="Escreva aqui sua mensagem..." class="form-control"
+                                rows="7"></textarea>
                         </div>
                     </div>
                 </div>
@@ -406,6 +449,33 @@
         </div>
     </section>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable" hidden>
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-justify">...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Map Section -->
     <!-- <section id="map-section"></section> -->
     <!-- FOOTER SECTION -->
@@ -413,10 +483,11 @@
         <div class="container text-white h-100">
             <div class="row d-flex align-items-center h-100">
                 <div class="col-md-6">
-                    <p>&copy; 2020 ocragora.com - All Right Reserved</p>
+                    <p>&copy; 2020 www.ocragora.com - All Right Reserved</p>
                 </div>
                 <div class="col-md-6 text-center hidden-sm-down">
-                    <p>Design By <span><img src="img/bee.png" alt="bee" class="img-fluid"></span> ocragora.com</p>
+                    <p>Design By <span><img src="img/logo_ocr.png" width="20" height="20" alt="ocr agora"
+                                class="img-fluid"></span> www.ocragora.com </p>
                 </div>
             </div>
         </div>
