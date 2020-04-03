@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-5">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OCR AGORA</title>
+
     <!-- Font Awesome CSS Library -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -13,20 +14,24 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.css">
 
+
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo_ocr.png">
 
+    <!-- Json Viewer -->
+    <link rel="stylesheet" href="css/json-viewer.css">
+
     <!-- Animate CSS CDN -->
     <link rel="stylesheet" href="css/animate.min.css">
-    <!-- 
-            My name is Mohammad Istanbouly I am a Full Stack Web Developer 
-            this is a free template I found online I took it and convert it to 
-            bootstrap 4 alpha version template feel free to use it
-         -->
+
+
+
+
 </head>
 
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-toggleable-md navbar-light fixed-top py-4">
         <div class="container">
@@ -53,6 +58,10 @@
                     <!-- <li class="nav-item">
                         <a href="#blog-section" class="nav-link">Extensions</a>
                     </li> -->
+
+                    <li class="nav-item hidden">
+                        <a href="#conteudo-json" class="nav-link">Json</a>
+                    </li>
 
                     <!-- <li class="nav-item">
                         <a href="#team-section" class="nav-link">Tutorials</a>
@@ -102,10 +111,21 @@
             </div>
         </div>
     </header>
-    <!-- Agency Section -->
 
+
+    <!-- Agency Section -->
     <section id="agency-section">
+
+        <!-- Spinner -->
+        <div id="overlay" class="hidden">
+            <div class="loading text-center">
+                <img id="spinner-image" src="https://www.blogson.com.br/wp-content/uploads/2017/10/preloader.gif">
+            </div>
+        </div>
+
         <div class="container">
+
+
             <div class="row mb-5">
                 <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-white text-uppercase" id="agency">
                     <img src="img/w.png" alt="W Letter" class="img-fluid">
@@ -116,86 +136,54 @@
 
                 <div class="col-md-12 mb-12">
                     <h3>Escolha o Seu Arquivo</h3>
-                    <form method="POST" action="#" enctype="multipart/form-data">
+
+
+                    <form method="POST" id="fileUploadForm" enctype="multipart/form-data">
                         <!-- COMPONENT START -->
+
+
                         <div class="form-group">
-                            <div class="input-group input-file" name="Fichier1">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-light btn-choose" type="button">Escolha</button>
-                                </span>
-                                <input type="text" class="form-control" placeholder='Escolha o seu arquivo...' />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-reset" type="button">Apagar</button>
-                                </span>
+
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                    <label class="custom-file-label" for="inputGroupFile02"
+                                        aria-describedby="inputGroupFileAddon02">Escolha o Arquivo...</label>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="form-group">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-success pull-right">Enviar</button>
                             </span>
                         </div>
                     </form>
                 </div>
-
-
-                <!-- <div class="col-md-3 mb-3" id="agency1">
-                    <img src="img/agency-icon-1.png" alt="icon-1" class="img-fluid my-3 agency-image">
-                    <h3 class="mb-3">Feature One</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio non quae
-                        dignissimos, rationeut ut</p>
-                </div>
-                <div class="col-md-3 mb-3" id="agency2">
-                    <img src="img/agency-icon-1.png" alt="icon-1" class="img-fluid my-3 agency-image">
-                    <h3 class="mb-3">Feature One</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio non quae
-                        dignissimos, rationeut ut</p>
-                </div>
-                <div class="col-md-3 mb-3" id="agency3">
-                    <img src="img/agency-icon-2.png" alt="icon-2" class="img-fluid my-3 agency-image">
-                    <h3 class="mb-3">Feature One</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio non quae
-                        dignissimos, rationeut ut</p>
-                </div>
-                <div class="col-md-3 mb-3" id="agency4">
-                    <img src="img/agency-icon-3.png" alt="icon-3" class="img-fluid my-3 agency-image">
-                    <h3 class="mb-3">Feature One</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio non quae
-                        dignissimos, rationeut ut</p>
-                </div> -->
             </div>
         </div>
     </section>
 
 
-    <!-- Blog Area -->
-    <section id="conteudo-json" class="">
+    <!-- Conteudo Json -->
+    <section id="conteudo-json" class="hidden">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-uppercase" id="blog">
-                    <img src="img/b.png" alt="B Letter" class="img-fluid">
-                    <h2 class="section-custom-title">Conteúdo do seu arquivo</h2>
-                    <!--<h4>We Love Clean Design and advanced digital solutions.</h4>-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center " id="blog1">
-                    <h6 class="text-uppercase text-primary">Response</h6>
-                    <div class="form-group">
-                        <input>
+
+                <div class="col-md-8 offset-md-2 text-left mt-5 pt-5 text-uppercase " id="blog1">
+                    <h4 class="text-uppercase text-primary">Conteudo do Arquivo </h4>
+                    <h5 class="text-uppercase text-primary">Json: </h5>
+                    <div id="json">
+                        <!-- aqui fica o conteudo com o retorno do json-->
                     </div>
-
-                    <div class="form-group">
-                        <textarea>
-
-                            </textarea>
-                    </div>
-
                 </div>
 
             </div>
         </div>
     </section>
+
+
 
     <!-- News Section -->
     <section id="news-section">
@@ -245,165 +233,9 @@
             </div>
         </div>
     </section>
-    <!-- Blog Area -->
-
-    <!--<section id="blog-section" class="">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-uppercase" id="blog">
-                        <img src="img/b.png" alt="B Letter" class="img-fluid">
-                        <h2 class="section-custom-title">let's blog</h2>
-                        <h4>We Love Clean Design and advanced digital solutions.</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 text-center " id="blog1">
-                        <img src="img/blog1.png" alt="blog picture 1" class="mb-3 img-fluid blog-image">
-                        <h6 class="text-uppercase text-primary">fresh summer campaign</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus architecto ipsum, molestiae illum incidunt reiciendis dicta consequatur neque quam ipsa!
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-center " id="blog2">
-                        <img src="img/blog1.png" alt="blog picture 1" class="mb-3 img-fluid blog-image">
-                        <h6 class="text-uppercase text-primary">fresh summer campaign</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus architecto ipsum, molestiae illum incidunt reiciendis dicta consequatur neque quam ipsa!
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-center " id="blog3">
-                        <img src="img/blog2.png" alt="blog picture 2" class="mb-3 img-fluid blog-image">
-                        <h6 class="text-uppercase text-primary">fresh summer campaign</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus architecto ipsum, molestiae illum incidunt reiciendis dicta consequatur neque quam ipsa!
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-center" id="blog4">
-                        <img src="img/blog3.png" alt="blog picture 3" class="mb-3 img-fluid blog-image">
-                        <h6 class="text-uppercase text-primary">fresh summer campaign</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus architecto ipsum, molestiae illum incidunt reiciendis dicta consequatur neque quam ipsa!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-    <!-- QUICK ACTION SECTION -->
-    <!-- <section id="quick-section">
-        <div class="container h-100">
-            <div class="row text-white h-100 pt-5">
-                <div class="col-md-6 pt-5" id="quick1">
-                    <div class="row no-gutters pt-5">
-                        <div class="col-md-3">
-                            <img src="img/quick-icon.png" alt="check board icon" class="">
-                        </div>
-                        <div class="col-md-9">
-                            <p class="">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores laboriosam quibusdam
-                                pariatur magnam tempore at nemo
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 pt-5" id="quick2">
-                    <div class="row no-gutters pt-5">
-                        <div class="col-md-3">
-                            <img src="img/quick-icon.png" alt="check board icon" class="">
-                        </div>
-                        <div class="col-md-9">
-                            <p class="">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores laboriosam quibusdam
-                                pariatur magnam tempore at nemo
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- KEY FEATURE SECTION -->
-    <!-- <section id="key-section" class="text-white">
-        <div class="container pt-5">
-            <div class="row pt-5">
-                <div class="col-md-8 col-sm-12">
-                    <h2 id="key-section-title">AKITA INU DOG</h2>
-                    <p id="key-section-text" class="my-5">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima inventore, explicabo
-                        dignissimos ipsam totam, sapiente quasi ipsum a facere maxime. Dolorem natus quod itaque quo vel
-                        eos repellat officia eum ipsa tempore assumenda, nobis, non facere aspernatur modi error at rem
-                        soluta sed tenetur nihil. Distinctio tempore culpa sit deserunt accusamus, soluta, vel ipsum
-                        unde, officiis explicabo voluptas nihil praesentium.
-                    </p>
-                    <p id="key-section-box-1" class="bg-primary w-50 py-1 pl-3 text-uppercase w-sm-100">Fully Responsive
-                        Design</p>
-                    <p id="key-section-box-2" class="bg-primary w-55 py-1 pl-3 text-uppercase w-sm-100">high quality
-                        code</p>
-                    <p id="key-section-box-3" class="bg-primary w-60 py-1 pl-3 text-uppercase w-sm-100">different
-                        headers layout</p>
-                </div>
-                <div class="col-md-4 hidden-md-down">
-                    <img src="img/phone.png" alt="" class="img-fluid" width="400" id="phone">
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Team Section -->
-    <!-- <section id="team-section">
-            <div class="container pb-5">
-                <div class="row mb-5">
-                    <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-uppercase" id="team">
-                        <img src="img/t.png" alt="B Letter" class="img-fluid">
-                        <h2 class="section-custom-title">our team</h2>
-                        <h4>sales long tail influencer pitch release niche market.</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 text-center" id="team1">
-                        <img src="img/person1.png" alt="blog picture 1" class="mb-3 img-fluid blog-image">
-                        <div class="card border-0 team-member-card m-auto">
-                            <div class="card-block">
-                                <h4 class="text-uppercase text-primary">john snow</h4>
-                                <p>CEO</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center " id="team2">
-                        <img src="img/person2.png" alt="blog picture 1" class="mb-3 img-fluid blog-image">
-                        <div class="card border-0 team-member-card m-auto">
-                            <div class="card-block">
-                                <h4 class="text-uppercase text-primary">lady sansa</h4>
-                                <p>webdesigner</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center " id="team3">
-                        <img src="img/person3.png" alt="blog picture 2" class="mb-3 img-fluid blog-image">
-                        <div class="card border-0 team-member-card m-auto">
-                            <div class="card-block">
-                                <h4 class="text-uppercase text-primary">david smith</h4>
-                                <p>photographer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" id="team4">
-                        <img src="img/person4.png" alt="blog picture 3" class="mb-3 img-fluid blog-image">
-                        <div class="card border-0 team-member-card m-auto">
-                            <div class="card-block">
-                                <h4 class="text-uppercase text-primary">lady sansa</h4>
-                                <p>photographer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-
+   
     <!-- Contact section -->
-    <section id="contact-section" class="">
+    <section id="contact-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-8 offset-md-2 text-center mt-5 pt-5 text-uppercase" id="blog">
@@ -459,18 +291,18 @@
         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <div class="modal-header bg-primary text-white text-uppercase text-center">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">&#128531; - Ocorreu um Erro - &#128531; </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p class="text-justify">...</p>
+                <div class="modal-body text-uppercase bg-light text-dark">
+                    <p class="text-justify">Entre em contato com a gente, vamos solucionar o problema!!!</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="contato" class="btn btn-success" >Contato</button>
                 </div>
             </div>
         </div>
@@ -493,17 +325,24 @@
         </div>
     </footer>
 </body>
+
 <!-- JQuery Library -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- Tether For Bootstrap 4 alpha 6 tooltip -->
 <script src="js/tether.min.js"></script>
 <!-- Bootstrap 4 alpha 6 -->
 <script src="js/bootstrap.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 <!-- Smooth Scroll -->
 <script src="js/navbar-fixed.js"></script>
 <!-- Way points -->
 <script src="js/jquery.waypoints.min.js"></script>
+<!-- Json Viewer -->
+<script src="js/json-viewer.js"></script>
 <!-- My Animations -->
 <script src="js/my-animations.js"></script>
+
 
 </html>

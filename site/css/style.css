@@ -178,3 +178,33 @@ footer {
   min-height: 115px;
   background: #222222;
 }
+
+.hidden {
+	display:none;
+}
+/* 
+.content-load {
+  background: #ada9aa;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+} */
+
+#overlay{
+  position: absolute;
+  z-index: 1100;
+  /* top:0px; */
+  /* left:0px; */
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: .7;
+}
+
+.loading {
+  position: relative;
+  z-index: 1200;
+  /* left:50%; */
+  top:30%;
+}

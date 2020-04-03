@@ -112,6 +112,66 @@ $(document).ready(function () {
         $(".nav-link").removeClass('active-link');
         $(this).addClass('active-link');
     });
+
+    // Responsavel por colocar o nome no input do arquivo
+    $('#inputGroupFile02').on('change', function () {
+        //get the file name
+        var fileName = $(this).val().replace(/^.*\\/, "");
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
+
+    // Responsavel por selecionar a secao de contato caso ocorra algum erro
+    $('#contato').on('click', function () {
+        $('a[href="#contact-section"]').click();
+        $("#exampleModalScrollable").modal('hide');
+    })
+
+    $("#btnSubmit").click(function (event) {
+
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        $("#overlay").removeClass('hidden');
+
+        var form = $('#fileUploadForm')[0];
+        var formData = new FormData();
+
+        formData.append("file", form[0].files[0], form[0].files[0].name);
+
+
+        // disabled the submit button
+        // $("#btnSubmit").prop("disabled", true);
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "http://localhost:8000/textextractor",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            timeout: 80000000,
+            success: function (data) {
+                
+                $("#overlay").addClass('hidden');
+                $("#conteudo-json").removeClass('hidden');
+                $("#json").html("");
+                conteudoJson(data);
+                $('a[href="#conteudo-json"]').click();
+            },
+            error: function (e) {
+
+                $("#overlay").addClass('hidden');
+                $("#conteudo-json").addClass('hidden');
+
+                $("#exampleModalScrollable").modal('show');
+                
+            }
+        });
+
+    });
+
 });
 
 // TEAM SECTION
@@ -149,29 +209,101 @@ $("#form-button").waypoint(function () {
 }, { offset: '100%' });
 
 function bs_input_file() {
-	$(".input-file").before(
-		function() {
-			if ( ! $(this).prev().hasClass('input-ghost') ) {
-				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
-				element.attr("name",$(this).attr("name"));
-				element.change(function(){
-					element.next(element).find('input').val((element.val()).split('\\').pop());
-				});
-				$(this).find("button.btn-choose").click(function(){
-					element.click();
-				});
-				$(this).find("button.btn-reset").click(function(){
-					element.val(null);
-					$(this).parents(".input-file").find('input').val('');
-				});
-				$(this).find('input').css("cursor","pointer");
-				$(this).find('input').mousedown(function() {
-					$(this).parents('.input-file').prev().click();
-					return false;
-				});
-				return element;
-			}
-		}
-	);
+    $(".input-file").before(
+        function () {
+            if (!$(this).prev().hasClass('input-ghost')) {
+                var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+                element.attr("name", $(this).attr("name"));
+                element.change(function () {
+                    element.next(element).find('input').val((element.val()).split('\\').pop());
+                });
+                $(this).find("button.btn-choose").click(function () {
+                    element.click();
+                });
+                $(this).find("button.btn-reset").click(function () {
+                    element.val(null);
+                    $(this).parents(".input-file").find('input').val('');
+                });
+                $(this).find('input').css("cursor", "pointer");
+                $(this).find('input').mousedown(function () {
+                    $(this).parents('.input-file').prev().click();
+                    return false;
+                });
+                return element;
+            }
+        }
+    );
+}
+
+function conteudoJson(data) {
+
+    var jsonViewer = new JSONViewer();
+    var textedJson = JSON.stringify(data, undefined, 4);
+    var jsonObj = JSON.parse(textedJson);
+
+    document.querySelector("#json").appendChild(jsonViewer.getContainer());
+    jsonViewer.showJSON(jsonObj);
+
+}
+
+// Usar apenas para teste
+function getJsonTeste() {
+
+    var myData = {
+        "address": {
+            "House_Number": 505,
+            "Street_Direction": "",
+            "Street_Name": "Claremont ssdf sdf asdasd as dasd as dasd asd asd ad asd adas da da d",
+            "Street_Type": "Street asd asd a da da dad asd asdasd asdasdas d da da d",
+            "Apt": "15L",
+            "Burough": "Brooklyn",
+            "State": "NY",
+            "Zip": "10451",
+            "Phone": "718-777-7777"
+        },
+        "car": {
+            "House_Number": 505,
+            "Street_Direction": "",
+            "Street_Name": "Claremont ssdf sdf asdasd as dasd as dasd asd asd ad asd adas da da d",
+            "Street_Type": "Street asd asd a da da dad asd asdasd asdasdas d da da d",
+            "Apt": "15L",
+            "Burough": "Brooklyn",
+            "State": "NY",
+            "Zip": "10451",
+            "Phone": "718-777-7777"
+        },
+        "house": {
+            "House_Number": 505,
+            "Street_Direction": "",
+            "Street_Name": "Claremont ssdf sdf asdasd as dasd as dasd asd asd ad asd adas da da d",
+            "Street_Type": "Street asd asd a da da dad asd asdasd asdasdas d da da d",
+            "Apt": "15L",
+            "Burough": "Brooklyn",
+            "State": "NY",
+            "Zip": "10451",
+            "Phone": "718-777-7777"
+        },
+        "street": {
+            "House_Number": 505,
+            "Street_Direction": "",
+            "Street_Name": "Claremont ssdf sdf asdasd as dasd as dasd asd asd ad asd adas da da d",
+            "Street_Type": "Street asd asd a da da dad asd asdasd asdasdas d da da d",
+            "Apt": "15L",
+            "Burough": "Brooklyn",
+            "State": "NY",
+            "Zip": "10451",
+            "Phone": "718-777-7777"
+        },
+        "casehead": 0,
+        "adults": [{
+            "Last_Name": "Foo",
+            "First_Name": "A",
+            "Sex": "M",
+            "Date_Of_Birth": "01011980"
+        }],
+        "children": []
+    };
+
+    return myData;
 }
 
